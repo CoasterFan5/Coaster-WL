@@ -19,13 +19,11 @@ public class WhitelistPlugin extends JavaPlugin implements Listener {
     @Override
     public void onEnable() {
         getServer().getPluginManager().registerEvents(this, this);
-        getLogger().info("On Enable Called");
     }
 
     @EventHandler
     public void checkWl(AsyncPlayerPreLoginEvent event) {
         UUID uuid = event.getUniqueId();
-        getLogger().info(String.format("Join event from %s", uuid));
 
         var uriString = String.format(
             "https://smputils.coasterfan5.com/api/v1/%s",
