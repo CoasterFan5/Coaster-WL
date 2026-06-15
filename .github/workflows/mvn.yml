@@ -1,0 +1,32 @@
+name: Plugin build with maven
+
+on: push
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+      repository-projects: write
+    steps:
+      - name: "Checkout code"
+        uses: actions/checkout@v6
+
+      - name: Set up JDK
+        uses: actions/setup-java@v4
+        with:
+          java-version: "26.0.1"
+          distribution: "temurin"
+
+      - name: Build with maven
+        run: mvn package
+
+      - name: "Make staging directory"
+        run: "mkdir staging && cp target/*.jar staging"
+
+      - name: "Upload artifact"
+        uses: actions/upload-artifact@v4
+        with:
+          name: Package
+          path: staging
