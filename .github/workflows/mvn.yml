@@ -25,3 +25,5 @@ jobs:
       - uses: ncipollo/release-action@v1
         with:
           artifacts: "target/*.jar"
+          tag: "release"
+          commit: "main"
