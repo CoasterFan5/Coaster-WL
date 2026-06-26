@@ -1,3 +1,4 @@
 name: WhitelistPlugin
 version: 0.1
 main: smp.coasterfan5.com.WhitelistPlugin
+api-version: 1.13
