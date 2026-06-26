@@ -16,7 +16,7 @@ jobs:
       - name: Set up JDK
         uses: actions/setup-java@v4
         with:
-          java-version: "26.0.1"
+          java-version: "25.0.3"
           distribution: "temurin"
 
       - name: Build with maven
